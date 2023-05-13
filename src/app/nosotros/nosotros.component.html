@@ -1,0 +1,24 @@
+<img style="width:100%" src="../../assets/IMG_0915.jpg" alt="">
+<div *ngFor="let i of servicios">
+  <ul>
+    <li>Nuestro hotel le ofrece: </li>
+    <li>{{ i }}.</li>
+  </ul>
+</div>
+
+<div *ngIf="mostrar">
+  <ul>
+    <li>Además de todo lo anterior, contamos con más actividades
+      para toda ocasión
+    </li>
+    <li>
+      Spa, caminatas, spinning, deportes acuaticos y terapia grupal
+    </li>
+  </ul>
+</div>
+
+<button (click)="mostrar = !mostrar">Mostrar más</button> <br> <br> <hr>
+<section>
+<h3> Encuentranos, te esperamos! </h3>
+<app-mapeando></app-mapeando>
+</section>

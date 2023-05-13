@@ -1,0 +1,122 @@
+<head>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    nav {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(0, 3, 32);
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+    button{
+      background-color: rgba(177, 177, 197, 0.481);
+    }
+
+    li {
+      margin: 0;
+      padding-left: 30px;
+      margin-left: 40px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    a {
+      color: rgb(176, 214, 236);
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      max-width: 120px;
+      height: auto;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .search-input {
+      margin-right: 10px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <img src="../assets/IMG_0848.jpg" alt="" />
+      </li>
+      <li><a class="button" routerLink="/agendar" routerLinkActive="activebutton" href="">Sobre Nosotros</a></li>
+      <li><a class="button" routerLink="/nosotros" routerLinkActive="activebutton" href="">Nuestros Servicios</a></li>
+      <li><a class="button" routerLink="/vision" routerLinkActive="activebutton" href="">Vision</a></li>
+      <li><a class="button" routerLink="/mision" routerLinkActive="activebutton" href="">Conócenos</a></li>
+      <li><a class="button" routerLink="/galeria" routerLinkActive="activebutton" href="">Galeria</a></li>
+    </ul>
+
+    <div class="search-container">
+      <input class="search-input" type="text" placeholder="Buscar..." />
+      <button mat-button class="search-button" type="button" id="search-button">Buscar</button>
+    </div>
+  </nav>
+
+  <hr>
+  
+  <br><br>
+
+  <script>
+    // Obtén una referencia al botón de búsqueda por su clase
+    var searchButton = document.querySelector(".search-button");
+
+    // Agrega un evento de clic al botón de búsqueda
+    searchButton.addEventListener("click", function () {
+      // Obtén el valor del campo de entrada de búsqueda
+      var searchInput = document.querySelector(".search-input").value;
+      
+      // Realiza la acción de búsqueda (aquí puedes agregar tu lógica de búsqueda)
+      searchActivities(searchInput);
+      
+      // Restablece el valor del campo de entrada de búsqueda
+      document.querySelector(".search-input").value = "";
+    });
+
+    // Función para buscar actividades en la sección /nosotros
+    function searchActivities(searchTerm) {
+      // Obtén todas las actividades en la sección /nosotros (puedes reemplazar esta parte con tu lógica específica)
+      var activities = document.querySelectorAll("a.button[routerLink='/nosotros']");
+
+      // Recorre las actividades y verifica si el término de búsqueda coincide con el texto de la actividad
+      activities.forEach(function (activity) {
+        var activityText = activity.innerText.toLowerCase();
+        if (activityText.includes(searchTerm.toLowerCase())) {
+          // Si hay una coincidencia, muestra la actividad
+          activity.style.display = "block";
+        } else {
+          // Si no hay una coincidencia, oculta la actividad
+          activity.style.display = "none";
+        }
+      });
+    }
+  </script>
+  <router-outlet></router-outlet>
+</body>

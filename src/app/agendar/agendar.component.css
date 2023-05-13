@@ -1,0 +1,30 @@
+
+    body {
+      text-align: center;
+      color: black;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .current {
+      background-color: yellow;
+    }
+    .disabled {
+      background-color: lightgray;
+      cursor: default;
+    }
+    .selected {
+      background-color: green;
+      color: white;
+    }
+
+    *{
+      font-family: 'Tajawal', sans-serif;
+      color: black;
+  }
